@@ -47,6 +47,12 @@ group :development, :test do
   # [6] Tools
   # Debug
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
+
+  # [7] Testing
+  gem 'rspec-rails', '~> 5.0.2'
+	# Fixtures
+	gem 'factory_bot_rails', '~> 6.2.0'
 end
 
 group :development do
@@ -61,4 +67,17 @@ group :development do
   gem 'spring'
 end
 
-
+group :test do
+  # API Mocking
+  gem "webmock", "~> 3.18"
+  # Integration Testing
+  gem 'capybara', '>= 3.26'
+	# [6] Tools
+  # Matchers/Helpers for shorten and simple tests
+  gem 'shoulda-matchers', '~> 5.1.0'
+  # Fake data - fixtures
+  gem 'faker', '~> 2.19.0'
+  # Strategies for cleaning databases
+  gem 'database_cleaner', '~> 1.7.0'
+  gem 'database_cleaner-active_record', '~> 2.0'
+end
