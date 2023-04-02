@@ -28,6 +28,8 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 # Faster navigation.
 gem 'turbolinks', '~> 5'
+# Template Engine
+gem "slim-rails", "~> 3.6"
 
 
 # [4] Deployment
