@@ -30,7 +30,8 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Template Engine
 gem "slim-rails", "~> 3.6"
-
+# CSS Framework
+gem "tailwindcss-rails", "~> 2.0"
 
 # [4] Deployment
 # App server
