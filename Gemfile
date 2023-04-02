@@ -3,20 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# [1] Back-End
 gem 'rails', '~> 6.1.0'
-# Use sqlite3 as the database for Active Record
+
+# [2] Storage
 gem 'sqlite3', '~> 1.4'
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -25,24 +16,77 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-# Reduces boot times through caching; required in config/boot.rb
+# [2.1] APIs
+# JSON APIs
+gem 'jbuilder', '~> 2.7'
+
+
+# [3] Front-End
+# SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript.
+gem 'webpacker', '~> 5.0'
+# Faster navigation.
+gem 'turbolinks', '~> 5'
+# Template Engine
+gem "slim-rails", "~> 3.6"
+# CSS Framework
+gem "tailwindcss-rails", "~> 2.0"
+
+# [4] Deployment
+# App server
+gem 'puma', '~> 5.0'
+
+# [5] Config
+# Caching: Reduces boot time
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# [6] Tools
+# Time Zone info
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # [6] Tools
+  # Debug
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
+
+  # [7] Testing
+  gem 'rspec-rails', '~> 5.0.2'
+	# Fixtures
+	gem 'factory_bot_rails', '~> 6.2.0'
+  # Auto-run on Modifications
+  gem 'guard'
+  gem 'guard-rspec'
+
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  # [6] Tools
+  # Debug
   gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  # Profiling toolkit: Display Perf. Info.
   gem 'rack-mini-profiler', '~> 2.0'
+  # File modifications
   gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Pre-load app for console, rake and tests.
   gem 'spring'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :test do
+  # API Mocking
+  gem "webmock", "~> 3.18"
+  # Integration Testing
+  gem 'capybara', '>= 3.26'
+  gem 'capybara-screenshot'
+
+	# [6] Tools
+  # Matchers/Helpers for shorten and simple tests
+  gem 'shoulda-matchers', '~> 5.1.0'
+  # Fake data - fixtures
+  gem 'faker', '~> 2.19.0'
+  # Strategies for cleaning databases
+  gem 'database_cleaner', '~> 1.7.0'
+  gem 'database_cleaner-active_record', '~> 2.0'
+end
