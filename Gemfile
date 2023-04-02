@@ -79,6 +79,8 @@ group :test do
   gem "webmock", "~> 3.18"
   # Integration Testing
   gem 'capybara', '>= 3.26'
+  gem 'capybara-screenshot'
+
 	# [6] Tools
   # Matchers/Helpers for shorten and simple tests
   gem 'shoulda-matchers', '~> 5.1.0'
