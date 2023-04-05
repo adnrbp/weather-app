@@ -11,4 +11,8 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     main.container.mx-auto.mt-28.px-5.flex
+      p.notice
+        = notice
+      p.alert
+        = alert
       = yield
