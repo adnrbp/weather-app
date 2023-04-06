@@ -1,4 +1,4 @@
-RSpec.feature 'Sign in', :devise do
+RSpec.feature 'Sign In', :devise do
 
   context "not registered" do
     scenario 'user cannot sign in if not registered' do

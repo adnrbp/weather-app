@@ -13,9 +13,13 @@ html
     header
       = render 'layouts/navigation_links'
 
-    main.container.mx-auto.mt-28.px-5.flex
-      p.notice
-        = notice
-      p.alert
-        = alert
-      = yield
+    main.container.mx-auto.px-5
+      - if user_signed_in?
+        = render 'shared/flash'
+      - else
+        section.auth-layout
+          .auth-container.flex
+            .auth-section
+              = yield
+            .wallpaper-section
+              = image_tag "login.jpg", alt: "Login Wallpaper", class: "rounded-2xl"
