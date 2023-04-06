@@ -1,0 +1,28 @@
+
+h2.auth-title
+  | Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name), 
+                      html: { class: "flex flex-col gap-4" }) do |f|
+  .field
+    = f.label :email, class: 'hidden'
+    = f.email_field :email, autofocus: true, autocomplete: "email",
+                    class: "auth-email", placeholder: "Email"
+  .field
+    = f.label :password, class: 'hidden'
+    - if @minimum_password_length
+      em
+        | (
+        = @minimum_password_length
+        |  characters minimum)
+    = f.password_field :password, autocomplete: "new-password",
+                    class: "auth-pw", placeholder: "Password"
+  .field
+    = f.label :password_confirmation, class: 'hidden'
+    = f.password_field :password_confirmation, autocomplete: "new-password",
+                    class: "auth-pw", placeholder: "Password Confirmation"
+  .actions
+    = f.submit "Sign up", class: "auth-btn"
+  = render "devise/shared/error_messages", resource: resource
+  = render 'shared/flash'
+
+= render "devise/shared/links"

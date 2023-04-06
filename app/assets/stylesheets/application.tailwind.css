@@ -2,12 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+@layer base {
+  :root {
+    --color-primary: theme('colors.blue.dark');
+    --color-secondary: theme('colors.blue.medium');
   }
 }
 
-*/
+@layer components {
+  .alert {
+    @apply 
+      relative
+      px-4
+      py-3
+      mt-2
+      border
+      rounded
+    border-red-400
+    bg-red-100
+    text-red-700
+    ;
+  }
+  .notice, #error_explanation {
+    @apply
+    bg-orange-100
+      border-l-4
+    border-orange-500
+    text-orange-700
+      p-4
+    ;
+  }
+
+  .auth-layout {
+    @apply
+      bg-gray-50
+      min-h-screen
+      flex
+      items-center
+      justify-center
+    ;
+  }
+  .auth-title {
+    @apply 
+      font-bold
+      text-2xl
+    ;
+  }
+  .auth-input {
+    @apply
+      w-full
+      p-2
+      rounded-xl
+      border
+    ;
+    
+  }
+  .auth-email {
+    @apply
+      auth-input
+      mt-8
+    ;
+  }
+  .auth-pw {
+    @apply
+      auth-input
+    ;
+  }
+
+  .auth-btn {
+    @apply 
+      py-2
+      w-full
+      rounded-xl
+      bg-primary
+      text-white
+    ;
+  }
+
+  .auth-container {
+    @apply
+      max-w-3xl
+      p-5
+      rounded-2xl
+      shadow-lg
+      bg-gray-100
+    ;
+  }
+  .auth-section {
+    @apply
+      sm:w-1/2
+      px-16
+    ;
+
+  }
+
+  .auth-forgot {
+    @apply
+      mt-5
+      py-4
+      border-b
+      text-xs
+    ;
+  }
+
+  .auth-register {
+    @apply
+      justify-between
+      items-center
+      text-xs
+    ;
+  }
+  .auth-register__btn {
+    @apply
+      py-2
+      px-5
+      bg-white
+      border
+      rounded-xl
+    ;
+  }
+
+  .wallpaper-section {
+    @apply
+     w-1/2
+     sm:block
+     hidden
+    ;
+  }
+  
+}

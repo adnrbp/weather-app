@@ -5,6 +5,9 @@ ruby '2.7.1'
 
 # [1] Back-End
 gem 'rails', '~> 6.1.0'
+# Auth
+gem 'devise'
+
 
 # [2] Storage
 gem 'sqlite3', '~> 1.4'
@@ -72,6 +75,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Pre-load app for console, rake and tests.
   gem 'spring'
+  # Preview email
+  gem "letter_opener", "~> 1.8"
 end
 
 group :test do

@@ -1,0 +1,25 @@
+
+h2.auth-title
+  | Log in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name), 
+                html: { class: "flex flex-col gap-4" }) do |f|
+  .field
+    = f.label :email, class: "hidden"
+    = f.email_field :email, autofocus: true, autocomplete: "email",
+              class: "auth-email", placeholder: "Email"
+  .field
+    = f.label :password, class: "hidden"
+    = f.password_field :password, autocomplete: "current-password",
+              class: "auth-pw", placeholder: "Password"
+
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      = f.label :remember_me, class: "ml-2"
+  .actions
+    = f.submit "Log in", class: "auth-btn"
+  = render "devise/shared/error_messages", resource: resource
+  = render 'shared/flash'
+
+= render "devise/shared/links"
