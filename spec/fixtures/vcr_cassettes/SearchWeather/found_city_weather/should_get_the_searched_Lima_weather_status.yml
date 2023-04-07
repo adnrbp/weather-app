@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=Lima
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Apr 2023 22:36:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Server:
+      - BunnyCDN-MI1-975
+      Cdn-Pullzone:
+      - '93447'
+      Cdn-Uid:
+      - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+      Cdn-Requestcountrycode:
+      - PE
+      Cache-Control:
+      - public, max-age=180
+      Cdn-Proxyver:
+      - '1.03'
+      Cdn-Requestpullsuccess:
+      - 'True'
+      Cdn-Requestpullcode:
+      - '200'
+      Cdn-Cachedat:
+      - 04/07/2023 22:35:10
+      Cdn-Edgestorageid:
+      - '625'
+      Cdn-Status:
+      - '200'
+      Cdn-Requestid:
+      - eb4b8613741f731f72c68aff22c51bd9
+      Cdn-Cache:
+      - HIT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"location":{"name":"Lima","region":"Lima","country":"Peru","lat":-12.05,"lon":-77.05,"tz_id":"America/Lima","localtime_epoch":1680906910,"localtime":"2023-04-07
+        17:35"},"current":{"last_updated_epoch":1680906600,"last_updated":"2023-04-07
+        17:30","temp_c":25.8,"temp_f":78.4,"is_day":1,"condition":{"text":"Partly
+        cloudy","icon":"//cdn.weatherapi.com/weather/64x64/day/116.png","code":1003},"wind_mph":10.1,"wind_kph":16.2,"wind_degree":177,"wind_dir":"S","pressure_mb":1010.0,"pressure_in":29.82,"precip_mm":0.0,"precip_in":0.0,"humidity":71,"cloud":28,"feelslike_c":27.6,"feelslike_f":81.7,"vis_km":10.0,"vis_miles":6.0,"uv":7.0,"gust_mph":11.6,"gust_kph":18.7}}'
+  recorded_at: Fri, 07 Apr 2023 22:37:54 GMT
+recorded_with: VCR 6.1.0
