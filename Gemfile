@@ -7,7 +7,8 @@ ruby '2.7.1'
 gem 'rails', '~> 6.1.0'
 # Auth
 gem 'devise'
-
+# API Client
+gem "faraday", "~> 2.7"
 
 # [2] Storage
 gem 'sqlite3', '~> 1.4'

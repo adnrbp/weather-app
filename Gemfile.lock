@@ -106,6 +106,10 @@ GEM
       railties (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.5)
     formatador (1.1.0)
     globalid (1.1.0)
@@ -243,6 +247,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.12.0)
+    ruby2_keywords (0.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -321,6 +326,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 6.2.0)
   faker (~> 2.19.0)
+  faraday (~> 2.7)
   guard
   guard-rspec
   jbuilder (~> 2.7)
