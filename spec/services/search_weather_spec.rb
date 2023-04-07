@@ -28,5 +28,26 @@ RSpec.describe SearchWeather do
       expect(city_weather).not_to be_present
     end
   end
+
+  describe "cache enabled" do
+    let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
+    let(:cache) { Rails.cache }
+
+    before(:each) do
+      allow(Rails).to receive(:cache).and_return(memory_store)
+      Rails.cache.clear
+    end
+
+    it "fetches city from cache", :vcr do
+      city = "Lima"
+      cache_key = "weather:#{city}"
+
+      expect(Rails.cache.exist?(cache_key)).to be_falsy
+      searcher = SearchWeather.new(city: "Lima")
+      city_weather = searcher.run
+      expect(Rails.cache.read(cache_key)).to eq(searcher.weather)
+
+    end
+  end
   
 end

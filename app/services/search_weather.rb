@@ -2,6 +2,7 @@ class SearchWeather
   API_KEY = Rails.application.credentials.dig(:weather_api,:key)
 
   attr_accessor :city
+  attr_reader :weather
 
   def initialize(city:)
     @weather_client = WeatherApi::Client.new(API_KEY)
@@ -12,8 +13,7 @@ class SearchWeather
 
   def run
     return unless valid_city?(@city)
-    @weather = @weather_client.city_weather(@city)
-    @success = @weather.is_a?(Hash)
+    @weather = search(city)
     show_weather_info
   end
 
@@ -38,6 +38,15 @@ class SearchWeather
     #return false unless City.exists?(name: city.capitalize)
     #if City.exists?(name: city.capitalize)
       #@iata = City.find_by_name(city.capitalize).iata
+  end
+
+  def search(city)
+    response = Rails.cache.fetch(city, namespace: "weather", skip_nil: true, expires_in: 1.hour) do
+      print "MAKING A REQUEST ***********#{city}***"
+      @weather_client.city_weather(city)
+    end
+    @success = response.is_a?(Hash)
+    response
   end
 
   def show_weather_info
