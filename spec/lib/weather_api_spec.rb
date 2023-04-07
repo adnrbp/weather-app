@@ -1,8 +1,8 @@
 
-RSpec.describe User do
-  xit "should response a successful status" do
+RSpec.describe WeatherApi do
+  it "should response a successful status", :vcr do
     # Arrange
-    API_KEY = "test-key"
+    API_KEY = Rails.application.credentials.dig(:weather_api,:key)
     weather_client = WeatherApi::Client.new(API_KEY)
     # Act
     city_weather = weather_client.city_weather('Lima')
