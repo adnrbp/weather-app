@@ -82,6 +82,7 @@ end
 
 group :test do
   # API Mocking
+  gem "vcr", "~> 6.1"
   gem "webmock", "~> 3.18"
   # Integration Testing
   gem 'capybara', '>= 3.26'
