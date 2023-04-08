@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=iata:DXB
+    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=Dubai
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 08 Apr 2023 01:50:14 GMT
+      - Sat, 08 Apr 2023 04:44:25 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -29,7 +29,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Server:
-      - BunnyCDN-MI1-625
+      - BunnyCDN-MI1-876
       Cdn-Pullzone:
       - '93447'
       Cdn-Uid:
@@ -45,19 +45,20 @@ http_interactions:
       Cdn-Requestpullcode:
       - '200'
       Cdn-Cachedat:
-      - 04/08/2023 01:50:14
+      - 04/08/2023 04:41:46
       Cdn-Edgestorageid:
-      - '975'
+      - '625'
       Cdn-Status:
       - '200'
       Cdn-Requestid:
-      - c9005e82496fce6fc89c59f6dc79bfe4
+      - c220e8201366566c490d847e5f783268
       Cdn-Cache:
-      - EXPIRED
+      - HIT
     body:
       encoding: ASCII-8BIT
-      string: '{"location":{"name":"Dubai","region":"","country":"United Arab Emirates","lat":25.25,"lon":55.36,"tz_id":"Asia/Dubai","localtime_epoch":1680918614,"localtime":"2023-04-08
-        5:50"},"current":{"last_updated_epoch":1680918300,"last_updated":"2023-04-08
-        05:45","temp_c":24.0,"temp_f":75.2,"is_day":0,"condition":{"text":"Mist","icon":"//cdn.weatherapi.com/weather/64x64/night/143.png","code":1030},"wind_mph":3.8,"wind_kph":6.1,"wind_degree":40,"wind_dir":"NE","pressure_mb":1013.0,"pressure_in":29.91,"precip_mm":0.0,"precip_in":0.0,"humidity":74,"cloud":0,"feelslike_c":25.6,"feelslike_f":78.0,"vis_km":10.0,"vis_miles":6.0,"uv":1.0,"gust_mph":13.4,"gust_kph":21.6}}'
-  recorded_at: Sat, 08 Apr 2023 01:51:40 GMT
+      string: '{"location":{"name":"Dubai","region":"Dubai","country":"United Arab
+        Emirates","lat":25.25,"lon":55.28,"tz_id":"Asia/Dubai","localtime_epoch":1680928906,"localtime":"2023-04-08
+        8:41"},"current":{"last_updated_epoch":1680928200,"last_updated":"2023-04-08
+        08:30","temp_c":23.0,"temp_f":73.4,"is_day":1,"condition":{"text":"Sunny","icon":"//cdn.weatherapi.com/weather/64x64/day/113.png","code":1000},"wind_mph":4.3,"wind_kph":6.8,"wind_degree":80,"wind_dir":"E","pressure_mb":1015.0,"pressure_in":29.97,"precip_mm":0.0,"precip_in":0.0,"humidity":78,"cloud":0,"feelslike_c":24.9,"feelslike_f":76.9,"vis_km":10.0,"vis_miles":6.0,"uv":6.0,"gust_mph":8.7,"gust_kph":14.0}}'
+  recorded_at: Sat, 08 Apr 2023 04:45:52 GMT
 recorded_with: VCR 6.1.0
