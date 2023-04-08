@@ -5,22 +5,22 @@ RSpec.feature 'Search Weather', :devise do
     visit authenticated_root_path
   end
   context "cities that have iata" do
-    scenario 'user can search for weather status with City name' do
+    scenario 'user can search for weather status with City name', :vcr do
       fill_in :city, with: "Dubai"
       click_on "Search"
       expect(page).to have_selector(".result__full-name", text: "Dubai, United Arab Emirates")
       expect(page).to have_selector(".result__temperature", count: 2)
-      expect(page).to have_selector(".result__latitude", text: "25.25")
-      expect(page).to have_selector(".result__latitude", text: "55.36")
+      expect(page).to have_selector(".result__latitude", text: "lat: 25.25")
+      expect(page).to have_selector(".result__longitude", text: "lon: 55.28")
     end
   
-    scenario 'user can search for weather status with City name and iata' do
+    scenario 'user can search for weather status with City name and iata', :vcr do
       fill_in :city, with: "Dubai - DXB"
       click_on "Search"
       expect(page).to have_selector(".result__full-name", text: "Dubai, United Arab Emirates")
       expect(page).to have_selector(".result__temperature", count: 2)
-      expect(page).to have_selector(".result__latitude", text: "25.25")
-      expect(page).to have_selector(".result__latitude", text: "55.36")
+      expect(page).to have_selector(".result__latitude", text: "lat: 25.25")
+      expect(page).to have_selector(".result__longitude", text: "lon: 55.36")
     end
   end
 
