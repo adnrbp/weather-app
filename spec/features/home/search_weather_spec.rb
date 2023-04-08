@@ -1,4 +1,4 @@
-RSpec.feature 'Search Weather', :devise do
+RSpec.feature 'Search City Weather', :devise do
   before(:each) do
     user = FactoryBot.create(:user, :confirmed)
     login_as(user)
@@ -6,6 +6,9 @@ RSpec.feature 'Search Weather', :devise do
   end
   context "cities that have iata" do
     scenario 'user can search for weather status with City name', :vcr do
+      allow(City).to receive(:exists?).and_return(true)
+      allow(City).to receive(:find_by).and_return(OpenStruct.new({"iata": "DXB"}))
+      
       fill_in :city, with: "Dubai"
       click_on "Search"
       expect(page).to have_selector(".result__full-name", text: "Dubai, United Arab Emirates")

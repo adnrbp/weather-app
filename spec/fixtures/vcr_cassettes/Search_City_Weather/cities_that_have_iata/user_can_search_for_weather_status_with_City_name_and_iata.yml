@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=Dubai
+    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=iata:DXB
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 08 Apr 2023 01:50:13 GMT
+      - Sat, 08 Apr 2023 04:44:26 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -45,20 +45,19 @@ http_interactions:
       Cdn-Requestpullcode:
       - '200'
       Cdn-Cachedat:
-      - 04/08/2023 01:50:13
+      - 04/08/2023 04:41:47
       Cdn-Edgestorageid:
-      - '625'
+      - '975'
       Cdn-Status:
       - '200'
       Cdn-Requestid:
-      - acd08eea7acb279cf1ebfbd8af84ed2d
+      - f40a1ce9f0646390785145925d0f8494
       Cdn-Cache:
-      - MISS
+      - HIT
     body:
       encoding: ASCII-8BIT
-      string: '{"location":{"name":"Dubai","region":"Dubai","country":"United Arab
-        Emirates","lat":25.25,"lon":55.28,"tz_id":"Asia/Dubai","localtime_epoch":1680918613,"localtime":"2023-04-08
-        5:50"},"current":{"last_updated_epoch":1680918300,"last_updated":"2023-04-08
-        05:45","temp_c":24.0,"temp_f":75.2,"is_day":0,"condition":{"text":"Mist","icon":"//cdn.weatherapi.com/weather/64x64/night/143.png","code":1030},"wind_mph":3.8,"wind_kph":6.1,"wind_degree":40,"wind_dir":"NE","pressure_mb":1013.0,"pressure_in":29.91,"precip_mm":0.0,"precip_in":0.0,"humidity":74,"cloud":0,"feelslike_c":25.6,"feelslike_f":78.0,"vis_km":10.0,"vis_miles":6.0,"uv":1.0,"gust_mph":13.4,"gust_kph":21.6}}'
-  recorded_at: Sat, 08 Apr 2023 01:51:39 GMT
+      string: '{"location":{"name":"Dubai","region":"","country":"United Arab Emirates","lat":25.25,"lon":55.36,"tz_id":"Asia/Dubai","localtime_epoch":1680928907,"localtime":"2023-04-08
+        8:41"},"current":{"last_updated_epoch":1680928200,"last_updated":"2023-04-08
+        08:30","temp_c":23.0,"temp_f":73.4,"is_day":1,"condition":{"text":"Sunny","icon":"//cdn.weatherapi.com/weather/64x64/day/113.png","code":1000},"wind_mph":4.3,"wind_kph":6.8,"wind_degree":80,"wind_dir":"E","pressure_mb":1015.0,"pressure_in":29.97,"precip_mm":0.0,"precip_in":0.0,"humidity":78,"cloud":0,"feelslike_c":24.9,"feelslike_f":76.9,"vis_km":10.0,"vis_miles":6.0,"uv":6.0,"gust_mph":8.7,"gust_kph":14.0}}'
+  recorded_at: Sat, 08 Apr 2023 04:45:52 GMT
 recorded_with: VCR 6.1.0
