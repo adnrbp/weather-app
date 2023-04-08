@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_03_142356) do
+ActiveRecord::Schema.define(version: 2023_04_08_023205) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "country_abbr"
+    t.string "world_area_code"
+    t.string "airport_name"
+    t.string "iata"
+    t.string "celsius"
+    t.string "faren"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "localtime"
+    t.string "condition"
+    t.string "condition_icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
