@@ -42,7 +42,6 @@ class SearchWeather
 
   def search(city)
     response = Rails.cache.fetch(city, namespace: "weather", skip_nil: true, expires_in: 1.hour) do
-      print "MAKING A REQUEST ***********#{city}***"
       @weather_client.city_weather(city)
     end
     @success = response.is_a?(Hash)
