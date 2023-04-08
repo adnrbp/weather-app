@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 import "jquery"
 import "easy-autocomplete"
+import "packs/cities"
