@@ -1,13 +1,15 @@
 RSpec.describe SearchWeather do
   describe "found city weather" do
     it "should get the searched Lima weather status", :vcr do
+      allow(City).to receive(:exists?).and_return(true)
+      allow(City).to receive(:find_by).and_return(OpenStruct.new({"iata": "LIM"}))
 
       searcher = SearchWeather.new(city: "Lima")
       city_weather = searcher.run
       expect(searcher).to be_success
 
       expect(city_weather.name).to eq("Lima")
-      # expect(city_weather.iata).to eq("LIM")
+      expect(city_weather.iata).to eq("LIM")
       expect(city_weather.celsius_temp).to be_kind_of(Integer)
       expect(city_weather.celsius_temp).to be_between(-30,55)
       expect(city_weather.fahrenheit_temp).to be_kind_of(Integer)
@@ -24,7 +26,7 @@ RSpec.describe SearchWeather do
       expect(searcher).to be_success
 
       expect(city_weather.name).to eq("Lima")
-      # expect(city_weather.iata).to eq("LIM")
+      expect(city_weather.iata).to eq("LIM")
       expect(city_weather.celsius_temp).to be_kind_of(Integer)
       expect(city_weather.celsius_temp).to be_between(-30,55)
       expect(city_weather.fahrenheit_temp).to be_kind_of(Integer)
@@ -48,6 +50,15 @@ RSpec.describe SearchWeather do
     end
     it "handles no city param" do
       searcher = SearchWeather.new(city: nil)
+      city_weather = searcher.run
+      expect(searcher).not_to be_success
+
+      expect(city_weather).not_to be_present
+    end
+    it "handles a city without iata" do
+      allow(City).to receive(:exists?).and_return(false)
+      
+      searcher = SearchWeather.new(city: "")
       city_weather = searcher.run
       expect(searcher).not_to be_success
 

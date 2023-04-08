@@ -27,18 +27,19 @@ class SearchWeather
   def parse_city(city)
     return "" if city.nil?
     return city unless city.include? "-"
-    iata_code = city.split("- ")[1]
-    "iata:#{iata_code}"
-    #@iata = City.find_by_name(city.capitalize).iata
+    @iata_code = city.split("- ")[1]
+    "iata:#{@iata_code}"
   end
 
   def valid_city?(city)
     return false if city.empty?
     return true if city.include? "iata:"
+    return false unless city_with_iata?(city)
     true
-    #return false unless City.exists?(name: city.capitalize)
-    #if City.exists?(name: city.capitalize)
-      #@iata = City.find_by_name(city.capitalize).iata
+  end
+
+  def city_with_iata?(city)
+    City.exists?(name: city.capitalize)
   end
 
   def search(city)
@@ -54,7 +55,7 @@ class SearchWeather
       :date => formatted_date,
       :time => local_time,
       :name => location("name"),
-      :iata => @iata_code || "",
+      :iata => find_iata(@city),
       :full_name => full_location,
       :latitude => location("lat"),
       :longitude => location("lon"),
@@ -64,6 +65,14 @@ class SearchWeather
       :condition_icon => temperature_condition("icon") 
     }
     OpenStruct.new(info)
+  end
+
+  def find_iata(city)
+    return @iata_code if @iata_code.present?
+    return "" unless city_with_iata?(city)
+    country = @weather["location"]["country"]
+    found_city = City.find_by(name: city.capitalize, country: country)
+    @iata_code = found_city.iata if found_city.present?
   end
 
   def location(attrib)
