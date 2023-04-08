@@ -7,7 +7,7 @@
      = form_with url: authenticated_root_path, method: :get, class: "search-form" do |f|
       .search-container
         = f.label :city, class: "hidden"
-        = f.text_field :city, "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
+        = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
         = f.submit "Search", class: "search-button"
 
 
