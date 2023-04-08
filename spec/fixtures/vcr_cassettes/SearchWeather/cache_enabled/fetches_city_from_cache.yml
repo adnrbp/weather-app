@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=Lima
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Apr 2023 23:31:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Server:
+      - BunnyCDN-MI1-878
+      Cdn-Pullzone:
+      - '93447'
+      Cdn-Uid:
+      - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+      Cdn-Requestcountrycode:
+      - PE
+      Cache-Control:
+      - public, max-age=180
+      Cdn-Proxyver:
+      - '1.03'
+      Cdn-Requestpullsuccess:
+      - 'True'
+      Cdn-Requestpullcode:
+      - '200'
+      Cdn-Cachedat:
+      - 04/07/2023 23:31:39
+      Cdn-Edgestorageid:
+      - '625'
+      Cdn-Status:
+      - '200'
+      Cdn-Requestid:
+      - 3b4ff33d3ed017f0891c5d467b4e694a
+      Cdn-Cache:
+      - EXPIRED
+    body:
+      encoding: ASCII-8BIT
+      string: '{"location":{"name":"Lima","region":"Lima","country":"Peru","lat":-12.05,"lon":-77.05,"tz_id":"America/Lima","localtime_epoch":1680910299,"localtime":"2023-04-07
+        18:31"},"current":{"last_updated_epoch":1680909300,"last_updated":"2023-04-07
+        18:15","temp_c":25.7,"temp_f":78.3,"is_day":0,"condition":{"text":"Partly
+        cloudy","icon":"//cdn.weatherapi.com/weather/64x64/night/116.png","code":1003},"wind_mph":9.6,"wind_kph":15.5,"wind_degree":174,"wind_dir":"S","pressure_mb":1010.0,"pressure_in":29.84,"precip_mm":0.0,"precip_in":0.0,"humidity":73,"cloud":28,"feelslike_c":27.6,"feelslike_f":81.7,"vis_km":10.0,"vis_miles":6.0,"uv":7.0,"gust_mph":11.2,"gust_kph":18.0}}'
+  recorded_at: Fri, 07 Apr 2023 23:33:05 GMT
+recorded_with: VCR 6.1.0

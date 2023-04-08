@@ -7,7 +7,8 @@ ruby '2.7.1'
 gem 'rails', '~> 6.1.0'
 # Auth
 gem 'devise'
-
+# API Client
+gem "faraday", "~> 2.7"
 
 # [2] Storage
 gem 'sqlite3', '~> 1.4'
@@ -81,6 +82,7 @@ end
 
 group :test do
   # API Mocking
+  gem "vcr", "~> 6.1"
   gem "webmock", "~> 3.18"
   # Integration Testing
   gem 'capybara', '>= 3.26'

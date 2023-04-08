@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.weatherapi.com/v1/current.json?aqi=no&key=<CREDENTIAL>&q=Dubai
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 08 Apr 2023 01:50:13 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Server:
+      - BunnyCDN-MI1-625
+      Cdn-Pullzone:
+      - '93447'
+      Cdn-Uid:
+      - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+      Cdn-Requestcountrycode:
+      - PE
+      Cache-Control:
+      - public, max-age=180
+      Cdn-Proxyver:
+      - '1.03'
+      Cdn-Requestpullsuccess:
+      - 'True'
+      Cdn-Requestpullcode:
+      - '200'
+      Cdn-Cachedat:
+      - 04/08/2023 01:50:13
+      Cdn-Edgestorageid:
+      - '625'
+      Cdn-Status:
+      - '200'
+      Cdn-Requestid:
+      - acd08eea7acb279cf1ebfbd8af84ed2d
+      Cdn-Cache:
+      - MISS
+    body:
+      encoding: ASCII-8BIT
+      string: '{"location":{"name":"Dubai","region":"Dubai","country":"United Arab
+        Emirates","lat":25.25,"lon":55.28,"tz_id":"Asia/Dubai","localtime_epoch":1680918613,"localtime":"2023-04-08
+        5:50"},"current":{"last_updated_epoch":1680918300,"last_updated":"2023-04-08
+        05:45","temp_c":24.0,"temp_f":75.2,"is_day":0,"condition":{"text":"Mist","icon":"//cdn.weatherapi.com/weather/64x64/night/143.png","code":1030},"wind_mph":3.8,"wind_kph":6.1,"wind_degree":40,"wind_dir":"NE","pressure_mb":1013.0,"pressure_in":29.91,"precip_mm":0.0,"precip_in":0.0,"humidity":74,"cloud":0,"feelslike_c":25.6,"feelslike_f":78.0,"vis_km":10.0,"vis_miles":6.0,"uv":1.0,"gust_mph":13.4,"gust_kph":21.6}}'
+  recorded_at: Sat, 08 Apr 2023 01:51:39 GMT
+recorded_with: VCR 6.1.0
