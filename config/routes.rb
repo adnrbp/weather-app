@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cities/search'
+  
   devise_for :users
 
   devise_scope :user do
