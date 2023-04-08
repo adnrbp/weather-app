@@ -10,12 +10,13 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header
+    /header
       = render 'layouts/navigation_links'
 
     main.container.mx-auto.px-5
       - if user_signed_in?
         = render 'shared/flash'
+        = yield
       - else
         section.auth-layout
           .auth-container.flex

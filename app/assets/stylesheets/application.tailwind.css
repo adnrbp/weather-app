@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary: theme('colors.blue.dark');
+    --color-primary: theme('colors.blue.accent');
     --color-secondary: theme('colors.blue.medium');
   }
 }
@@ -76,6 +76,7 @@
       rounded-xl
       bg-primary
       text-white
+      hover:cursor-pointer
     ;
   }
 
@@ -129,5 +130,243 @@
      hidden
     ;
   }
+
+  .search {
+    @apply
+    w-full
+    h-screen
+    bg-gradient-to-r
+    from-cyan-500
+    to-blue-500
+    bg-center
+    flex
+    flex-col
+    items-center
+    justify-center
+    px-4
+    ;
+  }
+  .search-form {
+    @apply
+      h-16
+    bg-black/30
+      w-full
+      max-w-sm
+      mb-8
+      rounded-full
+      backdrop-blur-xl
+      ;
+  }
+  .search-container {
+    @apply
+      relative
+      flex
+      h-full
+      items-center
+      justify-between
+      p-2
+    ;
+  }
+
+
+  #search-field {
+    @apply 
+      flex
+      h-full
+      pl-6
+      pr-10
+      rounded-full
+
+      border-0
+      focus:border-0
+      ring-0
+      ring-offset-0
+
+      
+      text-sm
+      font-medium
+
+      outline-none
+      focus:outline-none
+    ;
+  }
+  
+  .search-button {
+    @apply
+      flex
+      w-20
+      h-12
+      z-10
+      rounded-full
+      justify-center
+      items-center
+      transition
+      bg-primary
+    hover:bg-blue-hover
+    ;
+  }
+
+
+  .search-result {
+    @apply
+      w-full
+      bg-black/20
+      py-12
+      px-6
+      rounded-2xl
+      max-w-md
+    text-white
+      backdrop-blur-xl
+    ;
+  }
+
+  .result__temperature {
+    @apply
+      flex
+      justify-center
+      items-center
+    ;
+  }
+
+  .result__full-name {
+    @apply
+      text-2xl
+      font-semibold
+    ;
+  }
   
 }
+
+
+.button-cover {
+  width: 80px;
+  height: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px -8px #c5d6d6;
+  border-radius: 4px;
+}
+
+
+
+.checkbox {
+  border: 5px solid black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+
+  
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+
+
+
+
+.temp_switch {
+  border-radius: 2px;
+  position: relative;
+  width: 80px;
+  height: 30px;
+  margin: 0px auto 0 auto;
+}
+
+.knobs {
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+
+
+.temp_switch .knobs:before,
+.temp_switch .knobs:after,
+.temp_switch .knobs span {
+
+  position: absolute;
+  top: 4px;
+  width: 30px;
+  height: 20px;
+  padding: 6px 4px;
+
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  border-radius: 2px;
+
+  transition: 0.3s ease all;
+}
+
+
+
+/*Moving box*/
+.temp_switch .knobs:before {
+  content: "";
+  left: 4px;
+  background-color: #0fa31b;
+}
+/*Fahrenheit*/
+.temp_switch .knobs:after {
+  content: "°F";
+  right: 4px;
+  color: #4e4e4e;
+}
+/*Celcius*/
+.temp_switch .knobs span {
+  display: inline-block;
+  left: 4px;
+  color: #fff;
+  z-index: 1;
+}
+
+/*Celcius*/
+.temp_switch .checkbox:checked + .knobs span {
+  color: #4e4e4e;
+}
+/*Moving box*/
+.temp_switch .checkbox:checked + .knobs:before {
+  left: 42px;
+  background-color: #03a9f4;
+}
+/*Fahrenheit*/
+.temp_switch .checkbox:checked + .knobs:after {
+  color: #fff;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+
+  width: 100%;
+  background-color: #daf7d4;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.temp_switch .checkbox:checked ~ .layer {
+  background-color: #d5effa;
+}
+
+
+
+.temp_switch .checkbox:checked ~ #fahrenheit {
+  display: flex;
+}
+.temp_switch .checkbox:checked ~ #celsius {
+  display: none;
+}
+
+
+

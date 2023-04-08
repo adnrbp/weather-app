@@ -15,9 +15,12 @@ module.exports = {
       colors: {
         blue: {
           medium: '#3182ce',
-          dark: '#2a4365'
+          dark: '#2a4365',
+          hover: '#15abdd',
+          accent: "#1ab8ed"
         },
         primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
       }
     },
   },
