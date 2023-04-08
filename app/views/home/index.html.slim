@@ -1,14 +1,21 @@
-.search.lg-px-0
-  .flex.flex-col
-    | Weather Dashboard
-  div
-    = render 'layouts/navigation_links'
-  nav.z-20.px-3
-     = form_with url: authenticated_root_path, method: :get, class: "search-form" do |f|
-      .search-container
-        = f.label :city, class: "hidden"
-        = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
-        = f.submit "Search", class: "search-button"
+.search
+  header.p-2
+    .flex.mt-6.mb-4.md:mt-0.relative.w-full.mx-4
+      .text-center.w-fit.font-semibold.text-xl.tracking-tight.text-white
+        | Weather Dashboard
+      div.absolute.right-0.sign-out
+        = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+    div
+      - if @last_cities_found.present?
+        - @last_cities_found.each do |city|
+          button.searched-city
+            = link_to city.name, {city: "#{city.name} - #{city.iata}"}
+    nav.z-20.px-3
+      = form_with url: authenticated_root_path, method: :get, class: "search-form" do |f|
+        .search-container
+          = f.label :city, class: "hidden"
+          = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
+          = f.submit "Search", class: "search-button"
 
 
   .search-result.min-h-lg
@@ -47,13 +54,13 @@
 
             .capitalize.text-center
               = @city.condition
-      = link_to "Go To Location", "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}"
       .mt-4.result__latitude
         | lat: 
         = @city.latitude
       .mt-2.result__longitude
         | lon: 
         = @city.longitude
+      = link_to "Go To Location", "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}"
     - else
       p.text-xl
         | Search
