@@ -46,6 +46,13 @@ RSpec.describe SearchWeather do
 
       expect(city_weather).not_to be_present
     end
+    it "handles no city param" do
+      searcher = SearchWeather.new(city: nil)
+      city_weather = searcher.run
+      expect(searcher).not_to be_success
+
+      expect(city_weather).not_to be_present
+    end
   end
 
   describe "cache enabled" do

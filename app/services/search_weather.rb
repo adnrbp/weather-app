@@ -25,6 +25,7 @@ class SearchWeather
   private
   attr_accessor :iata_code
   def parse_city(city)
+    return "" if city.nil?
     return city unless city.include? "-"
     iata_code = city.split("- ")[1]
     "iata:#{iata_code}"
