@@ -1,63 +1,15 @@
-.search.lg-px-0
-  .flex.flex-col
-    | Weather Dashboard
-  div
-    = render 'layouts/navigation_links'
-  nav.z-20.px-3
-     = form_with url: authenticated_root_path, method: :get, class: "search-form" do |f|
-      .search-container
-        = f.label :city, class: "hidden"
-        = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
-        = f.submit "Search", class: "search-button"
+.search
+  header.p-2
+    .search-nav
+      .search-logo
+        = link_to "Weather Dashboard", authenticated_root_path
+      div.sign-out
+        = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+    div.mb-4
+      = render "search_latests", last_cities_found: @last_cities_found
+    nav.z-20.px-3
+      = render "search_form"
 
 
   .search-result.min-h-lg
-    - if @city.present?
-      .flex.items-center.gap-x-5
-        div
-          p.text-xl
-            = image_tag @city.condition_icon
-        div 
-          h2.result__full-name
-            = @city.full_name
-          div
-            = @city.time
-          div
-            = @city.time_offset
-          div
-            = @city.local_time
-      .mt-5.mb-20.flex.items-center.justify-center
-        .button-cover
-          .button.b2.temp_switch
-            input.checkbox(type="checkbox")
-            .knobs
-              span
-                | °C
-            .layer
-            .result__temperature#celsius
-              .text-8xl.leading-none.font-light
-                = @city.celsius_temp
-              .text-2xl
-                | °C
-            .result__temperature.hidden#fahrenheit
-              .text-8xl.leading-none.font-light
-                = @city.fahrenheit_temp
-              .text-2xl
-                | °F
-
-            .capitalize.text-center
-              = @city.condition
-      = link_to "Go To Location", "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}"
-      .mt-4.result__latitude
-        | lat: 
-        = @city.latitude
-      .mt-2.result__longitude
-        | lon: 
-        = @city.longitude
-    - else
-      p.text-xl
-        | Search
-
-  / - @current_user.cities.each |city|
-  /   p
-  /     = city.name
+    = render "search_result", city: @city

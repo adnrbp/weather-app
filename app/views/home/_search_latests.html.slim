@@ -1,0 +1,4 @@
+- if @last_cities_found.present?
+  - @last_cities_found.each do |city|
+    button.searched-city
+      = link_to city.name, {city: "#{city.name} - #{city.iata}"}

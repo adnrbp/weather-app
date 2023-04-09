@@ -32,7 +32,9 @@
       p-4
     ;
   }
+}
 
+@layer components {
   .auth-layout {
     @apply
       bg-gray-50
@@ -130,30 +132,104 @@
      hidden
     ;
   }
+}
 
+@layer components {
   .search {
     @apply
-    w-full
-    h-screen
-    bg-gradient-to-r
-    from-cyan-500
-    to-blue-500
-    bg-center
-    flex
-    flex-col
-    items-center
-    justify-center
-    px-4
+      flex
+      flex-col
+      items-center
+      justify-center
+
+      w-full
+      h-screen
+      px-4
+
+      bg-center
+      bg-gradient-to-r
+      from-cyan-500
+      to-blue-500
     ;
   }
+
+  .search-logo {
+    @apply
+      text-center
+      w-fit
+      font-semibold
+      text-xl
+      tracking-tight
+      text-white
+    ;
+  }
+  .search-nav {
+    @apply
+      flex
+      mt-6
+      mb-4
+      md:mt-0
+      relative
+      w-full
+      mx-4
+    ;
+  }
+
+  .sign-out {
+    @apply
+    absolute
+    right-0
+    inline-block
+    text-sm
+    px-4
+    py-2
+    leading-none
+    border
+    rounded
+    text-white
+    border-white
+    hover:border-transparent
+    hover:text-blue-500
+    hover:bg-white
+    lg:mt-0
+    ;
+  }
+
+  .searched-city {
+    @apply
+    py-2
+    px-4
+    mr-2
+    shadow-md
+    active:shadow-none
+    border-blue-400
+    
+    no-underline
+    rounded-full
+    focus:outline-none
+
+    bg-secondary
+    hover:bg-green-400
+
+    text-sm
+    text-white
+    font-sans
+    font-semibold
+    hover:text-white
+    
+    ;
+  }
+
   .search-form {
     @apply
+      mx-auto
       h-16
-    bg-black/30
       w-full
       max-w-sm
       mb-8
       rounded-full
+
+      bg-black/30
       backdrop-blur-xl
       ;
   }
@@ -161,9 +237,11 @@
     @apply
       relative
       flex
-      h-full
       items-center
       justify-between
+
+      w-full
+      h-full
       p-2
     ;
   }
@@ -194,9 +272,9 @@
   .search-button {
     @apply
       flex
-      w-20
       h-12
       z-10
+      w-16
       rounded-full
       justify-center
       items-center
@@ -210,13 +288,14 @@
   .search-result {
     @apply
       w-full
-      bg-black/20
+      max-w-sm
       py-12
       px-6
       rounded-2xl
-      max-w-md
-    text-white
+
+      bg-black/20
       backdrop-blur-xl
+    text-white
     ;
   }
 
@@ -232,6 +311,16 @@
     @apply
       text-2xl
       font-semibold
+    ;
+  }
+
+  .result__location {
+    @apply 
+      mt-4
+      p-2
+      w-32
+      hover:underline
+      hover:underline-offset-4
     ;
   }
   

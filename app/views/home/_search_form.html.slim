@@ -1,0 +1,6 @@
+= form_with url: authenticated_root_path, method: :get, class: "search-form" do |f|
+  .search-container
+    = f.label :city, class: "hidden"
+    = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
+    = f.button nil, class: "search-button" do
+      i.fa-solid.fa-magnifying-glass.text-lg
