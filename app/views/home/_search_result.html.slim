@@ -13,7 +13,7 @@
         = @city.time_offset
       div
         = @city.local_time
-  .mt-5.mb-20.flex.items-center.justify-center
+  .mt-5.mb-28.flex.items-center.justify-center
     .button-cover
       .button.b2.temp_switch
         input.checkbox(type="checkbox")
@@ -34,13 +34,16 @@
 
         .capitalize.text-center
           = @city.condition
-  .mt-4.result__latitude
-    | lat: 
-    = @city.latitude
-  .mt-2.result__longitude
-    | lon: 
-    = @city.longitude
-  = link_to "Go To Location", "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}"
+  
+  = link_to "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}", class: "flex items-center mt-4" do
+    i.fa-sharp.fa-solid.fa-location-dot
+    div.ml-3
+      .mt-4.result__latitude
+        | lat: 
+        = @city.latitude
+      .mt-2.result__longitude
+        | lon: 
+        = @city.longitude
 - else
   p.text-xl
       | Search a City

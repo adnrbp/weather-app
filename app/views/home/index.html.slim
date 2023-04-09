@@ -5,7 +5,7 @@
         = link_to "Weather Dashboard", authenticated_root_path
       div.sign-out
         = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
-    div.mb-2
+    div.mb-4
       = render "search_latests", last_cities_found: @last_cities_found
     nav.z-20.px-3
       = render "search_form"

@@ -2,4 +2,6 @@
   .search-container
     = f.label :city, class: "hidden"
     = f.text_field :city, :value => "#{params[:city]}", "data-behavior":"autocomplete", placeholder: "Search a City", id:"search-field"
-    = f.submit "Search", class: "search-button"
+    = f.button nil, class: "search-button" do
+      i.fa-solid.fa-magnifying-glass.text-lg
+      /= icon('fa-solid fa-magnifying-glass', 'Search')

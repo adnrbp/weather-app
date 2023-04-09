@@ -111,6 +111,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     formatador (1.1.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -328,6 +330,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2.0)
   faker (~> 2.19.0)
   faraday (~> 2.7)
+  font-awesome-sass (~> 6.4)
   guard
   guard-rspec
   jbuilder (~> 2.7)
