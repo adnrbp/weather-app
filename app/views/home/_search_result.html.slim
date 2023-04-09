@@ -35,7 +35,7 @@
         .capitalize.text-center
           = @city.condition
   
-  = link_to "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}", class: "flex items-center mt-4" do
+  = link_to "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}", class: "result__location flex items-center" do
     i.fa-sharp.fa-solid.fa-location-dot
     div.ml-3
       .mt-4.result__latitude

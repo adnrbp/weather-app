@@ -313,6 +313,16 @@
       font-semibold
     ;
   }
+
+  .result__location {
+    @apply 
+      mt-4
+      p-2
+      w-32
+      hover:underline
+      hover:underline-offset-4
+    ;
+  }
   
 }
 
