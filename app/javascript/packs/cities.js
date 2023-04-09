@@ -1,6 +1,9 @@
 document.addEventListener("turbolinks:load", function() {
 
   $input = $('*[data-behavior="autocomplete"]')
+  $input.keydown(function() {
+    $('.search-result').css("z-index", "-1");
+  })
 
 
   var options = {
@@ -16,6 +19,10 @@ document.addEventListener("turbolinks:load", function() {
     },
     list: {
       maxNumberOfElements: 10,
+      onClickEvent: function() {
+        $('.search-button').trigger("click");
+
+      }
     }
   };
   
