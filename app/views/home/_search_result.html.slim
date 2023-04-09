@@ -1,0 +1,46 @@
+
+- if @city.present?
+  .flex.items-center.gap-x-5
+    div
+      p.text-xl
+        = image_tag @city.condition_icon
+    div 
+      h2.result__full-name
+        = @city.full_name
+      div
+        = @city.time
+      div
+        = @city.time_offset
+      div
+        = @city.local_time
+  .mt-5.mb-20.flex.items-center.justify-center
+    .button-cover
+      .button.b2.temp_switch
+        input.checkbox(type="checkbox")
+        .knobs
+          span
+            | °C
+        .layer
+        .result__temperature#celsius
+          .text-8xl.leading-none.font-light
+            = @city.celsius_temp
+          .text-2xl
+            | °C
+        .result__temperature.hidden#fahrenheit
+          .text-8xl.leading-none.font-light
+            = @city.fahrenheit_temp
+          .text-2xl
+            | °F
+
+        .capitalize.text-center
+          = @city.condition
+  .mt-4.result__latitude
+    | lat: 
+    = @city.latitude
+  .mt-2.result__longitude
+    | lon: 
+    = @city.longitude
+  = link_to "Go To Location", "http://maps.google.com?q=#{@city.latitude},#{@city.longitude}"
+- else
+  p.text-xl
+      | Search a City
