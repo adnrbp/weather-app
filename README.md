@@ -1,24 +1,42 @@
-# README
+# Weather App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![weather app](docs/img/13-last5.png)
 
-Things you may want to cover:
+## Requisitos:
+- rails 6
+- node.js 12+
 
-* Ruby version
+## Install en desarrollo:
+- instalar gemas
+```
+bundle install
+```
+- Definir credenciales de la api
+```
+EDITOR=vim rails credentials:edit --environment development
+EDITOR=vim rails credentials:edit --environment test
+---------
+weather_api:
+  key: <weather-api-key>
+```
+## Ejecutar en desarrollo:
+`bin/dev`
 
-* System dependencies
+## Ejecutar tests:
+`rspec`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Gemas usadas
+- auth: devise
+- email preview: letter_opener 
+- api client: Faraday
+- testing:
+  - rspec
+  - factory_bot_rails
+  - shoulda-matchers
+  - database_cleaner
+  - vcr y webmock
+  - capybara
+- views:
+  - slim-rails
+  - tailwindcss-rails
+  - font-awesome-sass
